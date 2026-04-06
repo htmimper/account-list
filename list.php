@@ -26,10 +26,10 @@ $accounts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <th>カナ（名）</th>
   <th>メール</th>
   <th>性別</th>
-  <th>権限</th>
-  <th>状態</th>
-  <th>登録日</th>
-  <th>更新日</th>
+  <th>アカウント権限</th>
+  <th>削除フラグ</th>
+  <th>登録日時</th>
+  <th>更新日時</th>
   <th>更新</th>
   <th>削除</th>
 </tr>
@@ -46,17 +46,17 @@ $accounts = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <!-- 性別 -->
   <td><?= $row['gender'] == 0 ? '男' : '女' ?></td>
 
-  <!-- 権限 -->
+  <!-- アカウント権限 -->
   <td><?= $row['authority'] == 0 ? '一般' : '管理者' ?></td>
 
   <!-- 削除フラグ -->
   <td><?= $row['delete_flag'] == 0 ? '有効' : '無効' ?></td>
 
-  <!-- 日付 -->
+  <!-- 登録日時 -->
   <td><?= date('Y-m-d', strtotime($row['registered_time'])) ?></td>
   <td><?= date('Y-m-d', strtotime($row['update_time'])) ?></td>
 
-  <!-- 更新 -->
+  <!-- 更新日時-->
   <td>
     <a href="update.php?id=<?= $row['id'] ?>">
       <button>更新</button>
